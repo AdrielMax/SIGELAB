@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGELAB - Agendamento IFAL</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div>
+                <h1><i class="fa-solid fa-computer"></i> SIGELAB</h1>
+                <p>Laboratório de Informática - IFAL Campus Santana do Ipanema</p>
+            </div>
+            <div id="mesAnoDisplay" class="mes-ano"></div>
+        </div>
+    </header>
+
+    <main class="container layout-grid">
+        
+        <div class="coluna-esquerda">
+            <section class="card calendar-card">
+                <div class="calendar-header">
+                    <button id="btnPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <h3 id="calendarTitle">Mês</h3>
+                    <button id="btnNext"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid-header">
+                    <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+                </div>
+                <div id="calendarGrid" class="calendar-grid"></div>
+            </section>
+
+            <section class="card" id="detalhesDia">
+                <h3>Agenda: <span id="dataSelecionadaTexto">Selecione um dia</span></h3>
+                <div id="listaHorariosDia" class="lista-horarios">
+                    <p class="aviso-selecao">Clique em um dia no calendário para ver a disponibilidade.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="coluna-direita">
+            <section class="card form-card">
+                <h2><i class="fa-solid fa-plus-circle"></i> Novo Agendamento</h2>
+                <form id="formAgendamento">
+                    
+                    <div class="form-group">
+                        <label>Data Selecionada:</label>
+                        <input type="date" id="dataInput" required readonly>
+                        <small style="color: #666;">Selecione a data no calendário ao lado</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nome">Professor(a):</label>
+                        <input type="text" id="nome" required placeholder="Ex: Maria Souza">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="disciplina">Disciplina:</label>
+                            <input type="text" id="disciplina" required placeholder="Ex: Redes">
+                        </div>
+                        <div class="form-group">
+                            <label for="turma">Turma:</label>
+                            <input type="text" id="turma" required placeholder="Ex: 1ºB-ADM">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Horário (Aulas):</label>
+                        <select id="horario" required>
+                            <option value="">Selecione...</option>
+                            <optgroup label="Manhã">
+                                <option value="07:00 - 07:50">07:00 - 07:50 (1º Horário)</option>
+                                <option value="07:50 - 08:40">07:50 - 08:40 (2º Horário)</option>
+                                <option value="08:40 - 09:30">08:40 - 09:30 (3º Horário)</option>
+                                <option value="09:50 - 10:40">09:50 - 10:40 (4º Horário)</option>
+                                <option value="10:40 - 11:30">10:40 - 11:30 (5º Horário)</option>
+                                <option value="11:30 - 12:20">11:30 - 12:20 (6º Horário)</option>
+                            </optgroup>
+                            <optgroup label="Tarde">
+                                <option value="13:00 - 13:50">13:00 - 13:50 (1º Horário)</option>
+                                <option value="13:50 - 14:40">13:50 - 14:40 (2º Horário)</option>
+                                <option value="14:40 - 15:30">14:40 - 15:30 (3º Horário)</option>
+                                <option value="15:50 - 16:40">15:50 - 16:40 (4º Horário)</option>
+                                <option value="16:40 - 17:30">16:40 - 17:30 (5º Horário)</option>
+                                <option value="17:30 - 18:20">17:30 - 18:20 (6º Horário)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn">Confirmar Agendamento</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <h4></i>Desenvolvido pelo Professor <a target="_blank" href="https://instagram.com/prof.adrielmax"> Adriel Santos</a></h4>
+                <p>IFAL Campus Santana do Ipanema - 2025 ®</p>
+            </div>
+            <div id="mesAnoDisplay" class="mes-ano"></div>
+        </div>
+    </footer>
+
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
